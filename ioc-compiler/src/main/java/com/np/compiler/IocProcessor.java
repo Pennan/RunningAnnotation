@@ -43,6 +43,7 @@ public class IocProcessor extends AbstractProcessor {
     @Override
     public synchronized void init(ProcessingEnvironment processingEnv) {
         super.init(processingEnv);
+        System.out.println("init.......................");
         mFiler = processingEnv.getFiler();
         mElementUtils = processingEnv.getElementUtils();
         mMessager = processingEnv.getMessager();
@@ -51,6 +52,7 @@ public class IocProcessor extends AbstractProcessor {
     // 返回支持的注解类型
     @Override
     public Set<String> getSupportedAnnotationTypes() {
+        System.out.println("getSupportedAnnotationTypes.......................");
         Set<String> annotationTypes = new LinkedHashSet<>();
         annotationTypes.add(BindView.class.getCanonicalName());
         return annotationTypes;
@@ -59,6 +61,7 @@ public class IocProcessor extends AbstractProcessor {
     // 返回支持的源码版本
     @Override
     public SourceVersion getSupportedSourceVersion() {
+        System.out.println("getSupportedSourceVersion.......................");
         return SourceVersion.latestSupported();
     }
 
@@ -81,7 +84,7 @@ public class IocProcessor extends AbstractProcessor {
      */
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
-        System.out.println("process.....");
+        System.out.println("process.......................");
         mProxyInfoMap.clear();
         // 1、收集信息
         // 获取类中通过 BindView 注解的成员变量集合.

@@ -27,6 +27,7 @@ public class ProxyInfo {
         PackageElement packageElement = elementUtils.getPackageOf(typeElement);
         // 获取包的完全限定名称 如: com.np.ioc
         String packageName = packageElement.getQualifiedName().toString();
+        System.out.println("packageName=========" + packageName);
         String className = getClassName(packageName, typeElement);
         // 组成成代理类名 如: MainActivity$$ViewInject
         this.proxyClassName = className + PROXY;
